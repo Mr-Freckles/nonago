@@ -281,8 +281,8 @@ function draw() {
     if (lost) {
         fill(255, 0, 0);
         noStroke();
-        textSize(100);
-        text('L BOZO', startX - 175, startY + 35);
+        textSize(70);
+        text('YOU LOSE', startX - 175, startY + 35);
     }
 
 
