@@ -182,16 +182,16 @@ class Player {
 
     update() {
         //move left and right
-        if (keyIsDown(LEFT_ARROW) && this.canMove) {
+        if ((keyIsDown(LEFT_ARROW) || keyIsDown(65)) && this.canMove) {
             this.vx -= 0.8;
-        } else if (keyIsDown(RIGHT_ARROW) && this.canMove) {
+        } else if ((keyIsDown(RIGHT_ARROW) || keyIsDown(68)) && this.canMove) {
             this.vx += 0.8; 
         } else if (this.vx > 0) {//return speed to 0
             this.vx -= 0.1;
         } else if (this.vx < 0) {
             this.vx += 0.1;
         }
-        if (0.1 > this.vx && this.vx > -0.1 && !keyIsDown(LEFT_ARROW) && !keyIsDown(RIGHT_ARROW)) {
+        if (0.1 > this.vx && this.vx > -0.1 && !keyIsDown(LEFT_ARROW) && !keyIsDown(RIGHT_ARROW) && !keyIsDown(65) && !keyIsDown(68)) {
             this.vx = 0;
         }
         this.x += this.vx;
@@ -203,7 +203,7 @@ class Player {
             this.vx = -maxSpeed;
         }
         //jump if collision and up arrow is pressed 
-        if (keyIsDown(UP_ARROW) && this.canJump && this.canMove) {
+        if ((keyIsDown(UP_ARROW) || keyIsDown(87) || keyIsDown(32)) && this.canJump && this.canMove) {
             this.vy -= 14;
             onColour = random(colour);
             this.canJump = false;
@@ -212,7 +212,7 @@ class Player {
         } 
 
         //drop down quickly
-        if (keyIsDown(DOWN_ARROW) && this.canMove) {
+        if ((keyIsDown(DOWN_ARROW) || keyIsDown(83) || keyIsDown(16)) && this.canMove) {
             this.vy += 2;
         }
 
