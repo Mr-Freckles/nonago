@@ -1,7 +1,7 @@
 //game not started yet
 let gameStart = false;
 let lost = false
-let level = 1;
+let level = 0;
 
 //set gravity variables 
 let gravity = 0;
@@ -35,7 +35,7 @@ function targetCircle(colour) {
     stroke('black');
     strokeWeight(3);
     fill(colour)
-    circle(300, 60, 100);
+    circle(startX, startY, 100);
 }
 
 //start game if any key is pressed
@@ -176,7 +176,7 @@ class Player {
         collisionX = false; //reset to no collisions occuring
         collisionY = false;
         spinSpeed = startSpin; //reset spin speed
-        level = 1; //reset level
+        level = 0; //reset level
         this.storeData(); //store highscore in local storage
     }
 
@@ -227,9 +227,10 @@ class Player {
         this.y += this.vy;
 
         //update level
-        if (level*0.1 + startSpin === spinSpeed) {
+        if ((level + 1) + 1.5 < spinSpeed) {
             level++;
         }
+        console.log(spinSpeed)
         
         this.collision();
         this.draw();
@@ -253,6 +254,9 @@ let angleVar = 0; //allows for movement 0 is starting position
 
 function draw() {
     background(51);
+    //if you lose
+    //draw target circle
+    targetCircle(onColour);
     //draw hexagon
     strokeWeight(5);
     //set stroke colour for each side
@@ -278,14 +282,12 @@ function draw() {
         lost = false;
     }
 
+    player.update();
+
     if (lost) {
         fill(255, 0, 0);
         noStroke();
-        textSize(70);
-        text('YOU LOSE', startX - 175, startY + 35);
+        textSize(60);
+        text('GAME OVER', startX - 175, startY + 20);
     }
-
-
-    player.update();
-    targetCircle(onColour);
 }
