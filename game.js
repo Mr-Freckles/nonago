@@ -41,7 +41,7 @@ function targetCircle(colour) {
 
 //start game if any key is pressed
 function keyPressed(event) {
-    if (!gameStart) {
+    if (!gameStart && keyCode === 32) {
         gameStart = true;
         gravity = 0.4;
         player.x = startX;
