@@ -14,7 +14,8 @@ let highScore;
 let allowPoint = true;
 let collisionX = false;
 let collisionY = false;
-let collision = false;
+let altcollisionY = false;
+let altcollisionX = false;
 
 //set hexagon variables
 let radius = 200; //radius of hexagon
@@ -69,7 +70,6 @@ class Player {
     }
 
     storeData() {
-        console.log('highScore: ' + highScore);
         storeItem('highScore', highScore);
     }
     //draw level, score, and highscore, player
@@ -109,14 +109,14 @@ class Player {
                 this.y -=2;
                 this.canJump = true;
                 collisionY = true;
-                collision = true;
+                altcollisionY = true;
             } else if (this.y < startY && lineY - buffer < this.y && this.y < lineY + buffer) {
                 this.vy = 0;
                 this.y +=2;
                 collisionY = true;
-                collision = true;
+                altcollisionY = true;
             } else {
-                collision = false;
+                altcollisionY = false;
             }
             
             //stop player if in contact with lines x axis movement
@@ -124,10 +124,14 @@ class Player {
                 this.vx = 0;
                 this.x ++;
                 collisionX = true;
+                altcollisionX = true;
             } else if (this.x > startX && lineX - buffer < this.x && this.x < lineX + buffer) {
                 this.vx = 0;
                 this.x --;
                 collisionX = true;
+                altcollisionX = true;
+            } else {
+                altcollisionX = false;
             }
 
             //find if collision and add one point
@@ -149,7 +153,7 @@ class Player {
                 allowPoint = true; //allow for another point to be added if there is no more collision aka a jump has occured
             }
             //if collision with an incorrect colour
-            if (collision && (((i + 1) % 3 === 0 && onColour !== 'red') || ((i - 1) % 3 === 0 && onColour !== 'green') || (i % 3 === 0 && onColour !== 'blue'))) {
+            if ((altcollisionX || altcollisionY) && (((i + 1) % 3 === 0 && onColour !== 'red') || ((i - 1) % 3 === 0 && onColour !== 'green') || (i % 3 === 0 && onColour !== 'blue'))) {
                 this.gameEnd();
             }
         }
@@ -230,7 +234,6 @@ class Player {
         if ((level + 1) + 1.5 < spinSpeed) {
             level++;
         }
-        console.log(spinSpeed)
         
         this.collision();
         this.draw();
