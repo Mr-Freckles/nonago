@@ -48,6 +48,8 @@ function keyPressed(event) {
         player.y = startY;
         player.canMove = true;
         onColour = 'green';
+        level = 1;
+        score = 0;
     }
 
     //stop scrolling of page when keys are pressed
@@ -167,7 +169,6 @@ class Player {
         if (score > highScore) {
             highScore = score;
         }
-        score = 0; //reset score
         onColour = 'green'; //reset colour to make start easier
         this.canJump = false; //reset variables
         this.canMove = false;
@@ -180,7 +181,6 @@ class Player {
         collisionX = false; //reset to no collisions occuring
         collisionY = false;
         spinSpeed = startSpin; //reset spin speed
-        level = 1; //reset level
         this.storeData(); //store highscore in local storage
     }
 
