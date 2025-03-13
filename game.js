@@ -1,7 +1,7 @@
 //game not started yet
 let gameStart = false;
 let lost = false
-let level = 0;
+let level = 1;
 
 //set gravity variables 
 let gravity = 0;
@@ -12,9 +12,9 @@ let highScore;
 
 //set collision variables
 let allowPoint = true;
-let collisionX = false;
+let collisionX = false; //for point detection
 let collisionY = false;
-let altcollisionY = false;
+let altcollisionY = false; //for death detection
 let altcollisionX = false;
 
 //set hexagon variables
@@ -180,7 +180,7 @@ class Player {
         collisionX = false; //reset to no collisions occuring
         collisionY = false;
         spinSpeed = startSpin; //reset spin speed
-        level = 0; //reset level
+        level = 1; //reset level
         this.storeData(); //store highscore in local storage
     }
 
@@ -231,7 +231,7 @@ class Player {
         this.y += this.vy;
 
         //update level
-        if ((level + 1) + 1.5 < spinSpeed) {
+        if (level + 1.5 < spinSpeed) {
             level++;
         }
         
