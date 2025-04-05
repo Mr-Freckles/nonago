@@ -441,28 +441,28 @@ class Upgrade {
 }
 
 //add new upgrades
-let timeslow = new Upgrade(500, 'Time Slow', '/assets/timeslow.png', 0, () => {
+let timeslow = new Upgrade(500, 'Time Slow', 'assets/timeslow.png', 0, () => {
     spinSpeed -= 0.005;
 });
-let immunity = new Upgrade(1000, 'Immunity', '/assets/immunity.png', 1, () => {
+let immunity = new Upgrade(1000, 'Immunity', 'assets/immunity.png', 1, () => {
     immune = true;
     setTimeout(() => {
         immune = false;
     }, 5000);
 });
-let bigBall = new Upgrade(1000, 'Big Ball', '/assets/big ball.png', 2, () => {
+let bigBall = new Upgrade(1000, 'Big Ball', 'assets/big ball.png', 2, () => {
     bigBalls = 2;
     setTimeout(() => {
         bigBalls = 1;
     }, 5000);
 })
-let doublePoints = new Upgrade(2000, 'Double Points', '/assets/double points.png', 3, () => {
+let doublePoints = new Upgrade(2000, 'Double Points', 'assets/double points.png', 3, () => {
     doublepoints = 2;
     setTimeout(() => {
         doublepoints = 1;
     }, 5000);
 })
-let colourLock = new Upgrade(4000, 'Colour Lock', '/assets/colour lock.png', 4, () => {
+let colourLock = new Upgrade(4000, 'Colour Lock', 'assets/colour lock.png', 4, () => {
     colourlock = true;
     setTimeout(() => {
         colourlock = false;
@@ -556,25 +556,25 @@ let tealBall = new CustomBall('teal', false, 500, 'Teal Ball', 10);
 let tanBall = new CustomBall('tan', false, 500, 'Tan Ball', 11);
 
 //image balls
-let imgBall1 = new CustomBall(false, '/assets/ball1.png', 600, 'Green Cross', 12);
-let imgBall2 = new CustomBall(false, '/assets/ball2.png', 600, 'Blue Swirl', 13);
-let imgBall3 = new CustomBall(false, '/assets/ball3.png', 600, 'Red Cross', 14);
-let imgBall4 = new CustomBall(false, '/assets/ball4.png', 800, 'Yellow Cross', 15);
-let imgBall5 = new CustomBall(false, '/assets/ball5.png', 800, 'Purple Cross', 16);
-let imgBall6 = new CustomBall(false, '/assets/ball6.png', 800, 'Purple Spiral', 17);
-let imgBall7 = new CustomBall(false, '/assets/ball7.png', 900, 'Sun Ball', 18);
-let imgBall8 = new CustomBall(false, '/assets/ball8.png', 900, 'Love Ball', 19);
-let imgBall9 = new CustomBall(false, '/assets/ball9.png', 900, 'Star Ball', 20);
-let imgBall10 = new CustomBall(false, '/assets/ball10.png', 1000, 'Cloud Ball', 21);
-let imgBall11 = new CustomBall(false, '/assets/ball11.png', 1000, 'Lapis Ball', 22);
-let imgBall12 = new CustomBall(false, '/assets/ball12.png', 1000, 'Murkey Ball', 23);
-let imgBall13 = new CustomBall(false, '/assets/ball13.png', 1250, 'Vibrant Cloud', 24);
-let imgBall14 = new CustomBall(false, '/assets/ball14.png', 1250, 'Spiral Ball', 25);
-let imgBall15 = new CustomBall(false, '/assets/ball15.png', 1250, 'Heaven Ball', 26);
-let imgBall16 = new CustomBall(false, '/assets/ball16.png', 1500, 'Wave Ball', 27);
-let imgBall17 = new CustomBall(false, '/assets/ball17.png', 1500, 'Beach Ball', 28);
-let imgBall18 = new CustomBall(false, '/assets/ball18.png', 1500, 'Mountain Ball', 29);
-let imgBall19 = new CustomBall(false, '/assets/ball19.png', 2000, 'Show Off Ball', 30);
+let imgBall1 = new CustomBall(false, 'assets/ball1.png', 600, 'Green Cross', 12);
+let imgBall2 = new CustomBall(false, 'assets/ball2.png', 600, 'Blue Swirl', 13);
+let imgBall3 = new CustomBall(false, 'assets/ball3.png', 600, 'Red Cross', 14);
+let imgBall4 = new CustomBall(false, 'assets/ball4.png', 800, 'Yellow Cross', 15);
+let imgBall5 = new CustomBall(false, 'assets/ball5.png', 800, 'Purple Cross', 16);
+let imgBall6 = new CustomBall(false, 'assets/ball6.png', 800, 'Purple Spiral', 17);
+let imgBall7 = new CustomBall(false, 'assets/ball7.png', 900, 'Sun Ball', 18);
+let imgBall8 = new CustomBall(false, 'assets/ball8.png', 900, 'Love Ball', 19);
+let imgBall9 = new CustomBall(false, 'assets/ball9.png', 900, 'Star Ball', 20);
+let imgBall10 = new CustomBall(false, 'assets/ball10.png', 1000, 'Cloud Ball', 21);
+let imgBall11 = new CustomBall(false, 'assets/ball11.png', 1000, 'Lapis Ball', 22);
+let imgBall12 = new CustomBall(false, 'assets/ball12.png', 1000, 'Murkey Ball', 23);
+let imgBall13 = new CustomBall(false, 'assets/ball13.png', 1250, 'Vibrant Cloud', 24);
+let imgBall14 = new CustomBall(false, 'assets/ball14.png', 1250, 'Spiral Ball', 25);
+let imgBall15 = new CustomBall(false, 'assets/ball15.png', 1250, 'Heaven Ball', 26);
+let imgBall16 = new CustomBall(false, 'assets/ball16.png', 1500, 'Wave Ball', 27);
+let imgBall17 = new CustomBall(false, 'assets/ball17.png', 1500, 'Beach Ball', 28);
+let imgBall18 = new CustomBall(false, 'assets/ball18.png', 1500, 'Mountain Ball', 29);
+let imgBall19 = new CustomBall(false, 'assets/ball19.png', 2000, 'Show Off Ball', 30);
 
 //set variables for balls 
 let currentBall = 0;
@@ -742,13 +742,13 @@ function shop() {
 function preload() {
     //load upgrade images
     for (let i = 0; i < upgrades.length; i++) {
-        upgrades[i].img = loadImage(upgrades[i].imgPath);
+        upgrades[i].img = loadImage(window.location.pathname + upgrades[i].imgPath);
     }
 
     //load custom ball images
     for (let i = 0; i < balls.length; i++) {
         if (!balls[i].colour) {
-            balls[i].img = loadImage(balls[i].imgPath);
+            balls[i].img = loadImage(window.location.pathname + balls[i].imgPath);
         }
     }
 
