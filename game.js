@@ -48,7 +48,7 @@ let onColour = 'green';
 //circle variables 
 let maxSpeed = 5;
 let maxDownSpeed = 20;
-let currentBall = 0;
+let currentBall;
 
 function targetCircle(colour) {
     stroke('black');
@@ -222,6 +222,9 @@ class Player {
         textAlign(RIGHT);
         fill('yellow');
         text('Nonacoins: ' + nonacoins, 560, 30);
+        if (currentBall === null) {
+            currentBall = 0;
+        }
         balls[currentBall].draw(this.x, this.y, (this.r * bigBalls));
     }
 
