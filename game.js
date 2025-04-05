@@ -222,9 +222,6 @@ class Player {
         textAlign(RIGHT);
         fill('yellow');
         text('Nonacoins: ' + nonacoins, 560, 30);
-        if (currentBall === null) {
-            currentBall = 0;
-        }
         balls[currentBall].draw(this.x, this.y, (this.r * bigBalls));
     }
 
@@ -773,6 +770,9 @@ function setup() {
 
     //get current ball
     currentBall = getItem('current ball');
+    if (currentBall === null) {
+        currentball = 0;
+    }
 
     //setup white ball as bought no matter what
     whiteBall.setup();
