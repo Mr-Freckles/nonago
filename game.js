@@ -48,6 +48,7 @@ let onColour = 'green';
 //circle variables 
 let maxSpeed = 5;
 let maxDownSpeed = 20;
+let currentBall = 0;
 
 function targetCircle(colour) {
     stroke('black');
@@ -577,7 +578,6 @@ let imgBall18 = new CustomBall(false, 'assets/ball18.png', 1500, 'Mountain Ball'
 let imgBall19 = new CustomBall(false, 'assets/ball19.png', 2000, 'Show Off Ball', 30);
 
 //set variables for balls 
-let currentBall = 0;
 let balls = [whiteBall, blackBall, greyBall, redBall, greenBall, blueBall, purpleBall, yellowBall, pinkBall, orangeBall, tealBall, tanBall, imgBall1, imgBall2, imgBall3, imgBall4, imgBall5, imgBall6, imgBall7, imgBall8, imgBall9, imgBall10, imgBall11, imgBall12, imgBall13, imgBall14, imgBall15, imgBall16, imgBall17, imgBall18, imgBall19];
 let boughtBalls = [];
 
