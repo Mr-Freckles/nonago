@@ -771,7 +771,7 @@ function setup() {
     //get current ball
     currentBall = getItem('current ball');
     if (currentBall === null) {
-        currentball = 0;
+        currentBall = 0;
     }
 
     //setup white ball as bought no matter what
