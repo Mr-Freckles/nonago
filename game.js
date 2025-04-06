@@ -881,25 +881,3 @@ function draw() {
         line(15, 300, 5, 310);
     }
 }
-
-//dev tools
-function reset(number) {
-    boughtUpgrades = [];
-    storeItem('bought upgrades', boughtUpgrades);
-    for (let i = 0; i < upgrades.length; i++) {
-        upgrades[i].bought = false;
-        storeItem(`${upgrades[i].name} status`, false);
-    }
-
-    for (let i = 0; i < balls.length; i++) {
-    storeItem(`${balls[i].name} status`, false);
-    }
-
-    nonacoins += number;
-    storeItem('nonacoins', nonacoins);
-}
-
-function giveNonagons(number) {
-    nonacoins += number;
-    storeItem('nonacoins', nonacoins);
-}
